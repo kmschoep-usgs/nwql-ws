@@ -13,12 +13,12 @@
 		<!-- this is the base implementation (type) of service implementation -->
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>gov.usgs.wma.nwql.spikelot.webservice.NwqlServicesEntryPoint</param-value>
+			<param-value>gov.usgs.wma.nwql.webservice.NwqlServicesEntryPoint</param-value>
 			<!-- See this class for code example -->
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>gov.usgs.wma.nwql.spikelot.model</param-value>
+			<param-value>gov.usgs.wma.nwql.model</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

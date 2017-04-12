@@ -1,13 +1,12 @@
-package gov.usgs.wma.nwql.spikelot.format;
+package gov.usgs.wma.nwql.format;
 
 import com.google.gson.Gson;
 
-import gov.usgs.wma.nwql.spikelot.model.ResultRow;
+import gov.usgs.wma.nwql.model.ResultRow;
 
 /**
  *
- * Produces format: { "totalCount" : "recordCount" :
- * "numberofrecords", "startingRow" : "rowNum", "records": [ {<recordJson>}, ..]
+ * Produces format: {"records": [ {<recordJson>}, ..]
  * }
  */
 public class JsonStreamFormat {

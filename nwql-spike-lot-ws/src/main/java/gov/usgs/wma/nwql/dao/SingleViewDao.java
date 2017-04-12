@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.spikelot.dao;
+package gov.usgs.wma.nwql.dao;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
+import gov.usgs.wma.nwql.format.JsonStreamFormat;
 
 /**
  * Data access object for accessing a single table/view in the database.
@@ -17,7 +17,7 @@ import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
  */
 public class SingleViewDao {
 	private static String ROWNUM_HEADER = "RN"; 
-	public static final String MYBATIS_CORE_PACKAGE = "gov.usgs.wma.nwql.spikelot.mybatis";
+	public static final String MYBATIS_CORE_PACKAGE = "gov.usgs.wma.nwql.mybatis";
 	
 	private SqlSessionFactory sessionFactory;
 

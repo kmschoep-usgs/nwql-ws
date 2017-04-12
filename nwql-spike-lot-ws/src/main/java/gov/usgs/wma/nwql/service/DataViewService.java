@@ -1,7 +1,7 @@
-package gov.usgs.wma.nwql.spikelot.service;
+package gov.usgs.wma.nwql.service;
 
-import gov.usgs.wma.nwql.spikelot.dao.SingleViewDao;
-import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
+import gov.usgs.wma.nwql.dao.SingleViewDao;
+import gov.usgs.wma.nwql.format.JsonStreamFormat;
 
 import java.io.OutputStream;
 

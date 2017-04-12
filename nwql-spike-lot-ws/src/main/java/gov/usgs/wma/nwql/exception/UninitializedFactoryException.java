@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.spikelot.exception;
+package gov.usgs.wma.nwql.exception;
 
 /**
  * This exception is thrown when requests for a null session factory are made.

@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.spikelot.dao;
+package gov.usgs.wma.nwql.dao;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.slf4j.*;
 import org.codehaus.plexus.util.StringUtils;
 
-import gov.usgs.wma.nwql.spikelot.exception.UninitializedFactoryException;
+import gov.usgs.wma.nwql.exception.UninitializedFactoryException;
 
 public class SessionFactory {
 	private static final Logger LOG = LoggerFactory.getLogger(SessionFactory.class);

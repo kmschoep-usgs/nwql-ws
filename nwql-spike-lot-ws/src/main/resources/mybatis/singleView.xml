@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gov.usgs.wma.nwql.mybatis">
+	
+<resultMap id="nwisSpikeLotRecord" type="gov.usgs.wma.nwql.model.ResultRow">
+		<id property="nwisSpkLot" column="nwis_spk_lot" />
+		<result property="parmCode" column="parm_cd" />
+		<result property="amount" column="amount" />
+		<result property="certDate" column="cert_dt" />
+		<result property="expireDate" column="expire_dt" />
+		<result property="methodCode" column="meth_cd" />
+		<result property="schedule" column="schedule" />
+		<result property="origRecord" column="origrec" />
+		<result property="manufacturer" column="manufacturer" />
+		<result property="lotNumber" column="lot_number" />
+		<result property="analyte" column="analyte" />
+		<result property="units" column="units" />
+		<result property="testCode" column="testcode" />
+		
+	</resultMap>
+
+	
+	<sql id="singleViewQuery">
+
+		select  
+		/* PARALLEL (4)*/
+		nwis_spk_lot
+		,parm_cd
+		,amount
+		,cert_dt
+		,expire_dt
+		,meth_cd
+		,schedule
+		,origrec
+		,manufacturer
+		,lot_number
+		,analyte
+		,units
+		,testcode 
+		from usgs.nwis_spk_lot
+	</sql>
+
+	<select id="doSingleViewQuery" parameterType="String" resultMap="nwisSpikeLotRecord">
+	
+			    <include refid="singleViewQuery"/>
+	</select>
+	
+	<select id="doSingleViewQueryCount" parameterType="String" resultType="Integer" >		
+			select count(*) r_count from
+				(<include refid="singleViewQuery"/>)
+	</select>
+</mapper>

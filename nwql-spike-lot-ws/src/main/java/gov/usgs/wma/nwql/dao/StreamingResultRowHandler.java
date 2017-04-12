@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.spikelot.dao;
+package gov.usgs.wma.nwql.dao;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,8 +7,8 @@ import org.apache.ibatis.session.ResultContext;
 import org.apache.ibatis.session.ResultHandler;
 import org.slf4j.*;
 
-import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
-import gov.usgs.wma.nwql.spikelot.model.ResultRow;
+import gov.usgs.wma.nwql.format.JsonStreamFormat;
+import gov.usgs.wma.nwql.model.ResultRow;
 
 /**
  * Used by mybatis, simple row to ResultRow conversion (this is just a LinkMap
