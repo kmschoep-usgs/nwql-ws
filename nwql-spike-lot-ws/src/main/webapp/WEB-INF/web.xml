@@ -2,33 +2,9 @@
 <web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<description>NWQL Spike Lot Webervices</description>
-	<display-name>NWQL Spike Lot Webervices</display-name>
-	
-	<servlet>
-		<servlet-name>OauthProxy</servlet-name>
-		<servlet-class>gov.usgs.cida.proxy.AlternateProxyServlet</servlet-class>
-		<init-param>
-			<param-name>forward-url-param</param-name>
-			<param-value>cida.auth.service.oauth.endpoint</param-value>
-		</init-param>
-		<init-param>
-			<param-name>ignore-client-authorization</param-name>
-			<param-value>false</param-value>
-		</init-param>
-		<init-param>
-			<param-name>ignore-server-authorization</param-name>
-			<param-value>false</param-value>
-		</init-param>
-		<init-param>
-			<param-name>handle-redirects</param-name>
-			<param-value>false</param-value>
-		</init-param>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>OauthProxy</servlet-name>
-		<url-pattern>/service/auth/oauth/*</url-pattern>
-	</servlet-mapping>
+	<description>NWQL Spike Lot Webservices</description>
+	<display-name>nwql.spike.lot.ws</display-name>
+
 	
 	<!-- New single entry point into our services -->
 	<servlet>

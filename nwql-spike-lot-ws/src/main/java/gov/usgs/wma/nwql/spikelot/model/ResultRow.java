@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
  * Generic extension to LinkedHashMap so we can intercept them in Mybatis and
  * jersey
  *
- * @author thongsav
+ * @author kmschoep
  *
  *
  */

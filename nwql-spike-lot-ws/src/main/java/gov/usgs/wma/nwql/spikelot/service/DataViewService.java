@@ -1,9 +1,7 @@
 package gov.usgs.wma.nwql.spikelot.service;
 
-import gov.usgs.wma.nwql.spikelot.api.format.INwqlStreamFormat;
-import gov.usgs.wma.nwql.spikelot.api.service.IDataViewService;
 import gov.usgs.wma.nwql.spikelot.dao.SingleViewDao;
-import gov.usgs.wma.nwql.spikelot.exception.InvalidParameterException;
+import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
 
 import java.io.OutputStream;
 
@@ -14,7 +12,7 @@ import java.io.OutputStream;
  *
  *
  */
-public class DataViewService implements IDataViewService {
+public class DataViewService {
 
 	/**
 	 * Use this pattern in case of future dependency injection
@@ -29,7 +27,7 @@ public class DataViewService implements IDataViewService {
 	 * {@inheritDoc}
 	 */
 	public void streamData(OutputStream output,
-			INwqlStreamFormat format) throws InvalidParameterException {
+			JsonStreamFormat format) {
 
 		singleViewDao.streamResults(output, format);
 	}

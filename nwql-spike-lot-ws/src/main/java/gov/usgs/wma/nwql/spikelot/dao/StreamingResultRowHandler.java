@@ -7,7 +7,7 @@ import org.apache.ibatis.session.ResultContext;
 import org.apache.ibatis.session.ResultHandler;
 import org.slf4j.*;
 
-import gov.usgs.wma.nwql.spikelot.api.format.INwqlStreamFormat;
+import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
 import gov.usgs.wma.nwql.spikelot.model.ResultRow;
 
 /**
@@ -29,9 +29,9 @@ public class StreamingResultRowHandler implements ResultHandler {
 		this.output = output;
 	}
 
-	INwqlStreamFormat format;
+	JsonStreamFormat format;
 
-	public void setFormat(INwqlStreamFormat format) {
+	public void setFormat(JsonStreamFormat format) {
 		this.format = format;
 	}
 

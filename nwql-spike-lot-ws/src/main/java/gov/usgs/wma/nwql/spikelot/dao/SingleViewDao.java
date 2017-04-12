@@ -2,11 +2,11 @@ package gov.usgs.wma.nwql.spikelot.dao;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
-import gov.usgs.wma.nwql.spikelot.api.format.INwqlStreamFormat;
+import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
 
 /**
  * Data access object for accessing a single table/view in the database.
@@ -15,9 +15,24 @@ import gov.usgs.wma.nwql.spikelot.api.format.INwqlStreamFormat;
  *
  *
  */
-public class SingleViewDao extends BaseDao {
+public class SingleViewDao {
 	private static String ROWNUM_HEADER = "RN"; 
+	public static final String MYBATIS_CORE_PACKAGE = "gov.usgs.wma.nwql.spikelot.mybatis";
+	
+	private SqlSessionFactory sessionFactory;
 
+	public void setSessionFactory(SqlSessionFactory newFactory) {
+		sessionFactory = newFactory;
+	}
+
+	public SqlSession getNewSession() {
+		if (sessionFactory == null) {
+			sessionFactory = (new SessionFactory()).getSessionFactory();
+		}
+		SqlSession session = sessionFactory.openSession(true);
+		return session;
+	}
+		
 	/**
 	 * Starts streaming filtered results
 	 *
@@ -28,7 +43,7 @@ public class SingleViewDao extends BaseDao {
 	 * @return
 	 */
 	public void streamResults(OutputStream output,
-			INwqlStreamFormat format) {
+			JsonStreamFormat format) {
 		try (SqlSession session = getNewSession();
 				OutputStream outputClosable = output;
 				) {
