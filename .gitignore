@@ -1,1 +1,4 @@
 /.project
+/target/
+/.classpath
+/nb-configuration.xml

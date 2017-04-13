@@ -4,7 +4,7 @@
 	<groupId>gov.usgs.wma.nwql</groupId>
 	<artifactId>nwql-ws</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<name>NWQL Web Services</name>
 	<description>Parent of National Water Quality Laboratory Web Services</description>
 	
@@ -77,9 +77,6 @@
 		</repository>
 	</repositories>
 	
-	<modules>
-		<module>nwql-spike-lot-ws</module>
-	</modules>
 	<properties>
 		<mybatis.version>3.4.2</mybatis.version>
 		<plexus-utils.version>3.0.17</plexus-utils.version>
@@ -114,19 +111,16 @@
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.7</version>
 				</plugin>
-				<!-- 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.4</version>
 				</plugin>
-				-->
-				<!-- <plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.5</version>
 				</plugin>
-				-->
 				<plugin>
 					<groupId>com.lazerycode.jmeter</groupId>
 					<artifactId>jmeter-maven-plugin</artifactId>
@@ -140,70 +134,63 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.mybatis</groupId>
 				<artifactId>mybatis</artifactId>
-				<version>${mybatis.version}</version>
+				<version>3.4.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-utils</artifactId>
-				<version>${plexus-utils.version}</version>
+				<version>3.0.17</version>
 			</dependency>
 			<dependency>
 				<groupId>com.oracle</groupId>
 				<artifactId>ojdbc6</artifactId>
-				<version>${oracle.version}</version>
+				<version>11.2.0.3-1</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
-				<version>${servlet-api.version}</version>
+				<version>2.5</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
+				<version>4.12</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.mockito</groupId>
 				<artifactId>mockito-core</artifactId>
-				<version>${mockito.version}</version>
+				<version>2.7.0</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<artifactId>slf4j-api</artifactId>
 				<groupId>org.slf4j</groupId>
-				<version>${slf4j.version}</version>
+				<version>1.7.2</version>
 			</dependency>
 			<dependency>
 				<artifactId>logback-classic</artifactId>
 				<groupId>ch.qos.logback</groupId>
-				<version>${logback.version}</version>
+				<version>1.1.2</version>
 			</dependency>
 			<dependency>
 				<groupId>org.glassfish.jersey.containers</groupId>
 				<artifactId>jersey-container-servlet</artifactId>
-				<version>${jersey.version}</version>
+				<version>2.22.1</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.ws.rs</groupId>
 				<artifactId>javax.ws.rs-api</artifactId>
-				<version>${javax.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>gov.usgs.wma.nwql.spikelot</groupId>
-				<artifactId>nwql-spike-lot-ws</artifactId>
-				<version>${project.version}</version>
+				<version>2.0.1</version>
 			</dependency>
 			<dependency>
 				<groupId>com.google.code.gson</groupId>
 				<artifactId>gson</artifactId>
-				<version>${gson.version}</version>
+				<version>2.2.4</version>
 			</dependency>
 		</dependencies>
-	</dependencyManagement>
 </project>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<description>NWQL Spike Lot Webservices</description>
+	<display-name>nwql.spike.lot.ws</display-name>
+
+	
+	<!-- New single entry point into our services -->
+	<servlet>
+		<servlet-name>NwqlServicesEntryPoint</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<!-- this is the base implementation (type) of service implementation -->
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>gov.usgs.wma.nwql.webservice.NwqlServicesEntryPoint</param-value>
+			<!-- See this class for code example -->
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.config.property.packages</param-name>
+			<param-value>gov.usgs.wma.nwql.model</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NwqlServicesEntryPoint</servlet-name>
+		<!-- points to configuration above -->
+		<url-pattern>/service/*</url-pattern>
+		<!-- says everything at a url base of "service" will be routed to our entry -->
+	</servlet-mapping>
+	
+    <security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Entire Application</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+	<welcome-file-list>
+		<welcome-file>version</welcome-file>
+	</welcome-file-list>
+</web-app>

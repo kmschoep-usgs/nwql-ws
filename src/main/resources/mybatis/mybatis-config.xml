@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="cacheEnabled" value="false"/>
+	</settings>
+	
+	<typeAliases>
+		<typeAlias alias="resultRow" type="gov.usgs.wma.nwql.model.ResultRow" />
+	</typeAliases>
+	
+	<environments default="nwql">
+		<environment id="nwql">
+			<transactionManager type="JDBC" />
+			<dataSource type="JNDI">
+				<!-- note, this is the same JNDI resource as our JDBC connection -->
+				<property name="data_source" value="java:comp/env/nwql/jdbc/nwqlDS" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	
+	<mappers> <!-- add additional SQL mapper files here -->
+		<mapper resource="mybatis/spikeLot.xml" />
+	</mappers>
+</configuration> 
