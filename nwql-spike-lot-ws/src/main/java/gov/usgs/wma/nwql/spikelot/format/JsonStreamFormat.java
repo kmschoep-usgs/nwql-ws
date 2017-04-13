@@ -1,8 +1,8 @@
-package gov.usgs.wma.nwql.format;
+package gov.usgs.wma.nwql.spikelot.format;
 
 import com.google.gson.Gson;
 
-import gov.usgs.wma.nwql.model.ResultRow;
+import gov.usgs.wma.nwql.spikelot.model.ResultRow;
 
 /**
  *

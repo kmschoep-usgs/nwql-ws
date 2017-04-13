@@ -9,7 +9,7 @@
 	</settings>
 	
 	<typeAliases>
-		<typeAlias alias="resultRow" type="gov.usgs.wma.nwql.model.ResultRow" />
+		<typeAlias alias="resultRow" type="gov.usgs.wma.nwql.spikelot.model.ResultRow" />
 	</typeAliases>
 	
 	<environments default="nwql">

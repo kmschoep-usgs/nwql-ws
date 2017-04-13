@@ -8,6 +8,29 @@
 	<name>NWQL Web Services</name>
 	<description>Parent of National Water Quality Laboratory Web Services</description>
 	
+	<developers>
+		<developer>
+			<name>Kathryn Schoephoester</name>
+			<email>kmschoep@usgs.gov</email>
+			<id>kmschoep</id>
+			<organization>US Geological Survey, Office of Water Information</organization>
+			<organizationUrl>http://owi.usgs.gov</organizationUrl>
+			<timezone>-6</timezone>
+		</developer>
+	</developers>
+	
+	<licenses>
+		<license>
+			<name>Public Domain</name>
+			<url>http://en.wikipedia.org/wiki/Public_domain_software</url>
+			<comments>
+				All work of the US Government enter into the Public Domain within
+				the United States.  Whether that work is public domain outside of
+				the United States depends on various factors.
+			</comments>
+		</license>
+	</licenses>
+	
 	<distributionManagement>
 		<repository>
 			<id>cida-public</id>
@@ -59,17 +82,15 @@
 	</modules>
 	<properties>
 		<mybatis.version>3.4.2</mybatis.version>
-		<mybatis-ehcache.version>1.0.3</mybatis-ehcache.version>
 		<plexus-utils.version>3.0.17</plexus-utils.version>
-		<commons-logging.version>1.1.1</commons-logging.version>
 		<oracle.version>11.2.0.3-1</oracle.version>
-		<commons.io.version>2.5</commons.io.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>2.7.0</mockito.version>
 		<servlet-api.version>2.5</servlet-api.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<logback.version>1.1.2</logback.version>
 		<jersey.version>2.22.1</jersey.version>
+		<javax.version>2.0.1</javax.version>
 		<gson.version>2.2.4</gson.version>
 	</properties>
 	
@@ -85,20 +106,27 @@
 					</configuration>
 				</plugin>
 				<plugin>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>2.5.1</version>
+				</plugin>
+				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-antrun-plugin</artifactId>
 					<version>1.7</version>
 				</plugin>
+				<!-- 
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.4</version>
 				</plugin>
-				<plugin>
+				-->
+				<!-- <plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.5</version>
 				</plugin>
+				-->
 				<plugin>
 					<groupId>com.lazerycode.jmeter</groupId>
 					<artifactId>jmeter-maven-plugin</artifactId>
@@ -120,24 +148,9 @@
 				<version>${mybatis.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.mybatis.caches</groupId>
-				<artifactId>mybatis-ehcache</artifactId>
-				<version>${mybatis-ehcache.version}</version>
-			</dependency>
-			<dependency>
 				<groupId>org.codehaus.plexus</groupId>
 				<artifactId>plexus-utils</artifactId>
 				<version>${plexus-utils.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-lang3</artifactId>
-				<version>3.3.2</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-logging</groupId>
-				<artifactId>commons-logging</artifactId>
-				<version>${commons-logging.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.oracle</groupId>
@@ -148,11 +161,6 @@
 				<groupId>javax.servlet</groupId>
 				<artifactId>servlet-api</artifactId>
 				<version>${servlet-api.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>commons-io</groupId>
-				<artifactId>commons-io</artifactId>
-				<version>${commons.io.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>junit</groupId>
@@ -182,12 +190,12 @@
 				<version>${jersey.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>org.glassfish.jersey.media</groupId>
-				<artifactId>jersey-media-moxy</artifactId>
-				<version>${jersey.version}</version>
+				<groupId>javax.ws.rs</groupId>
+				<artifactId>javax.ws.rs-api</artifactId>
+				<version>${javax.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>gov.usgs.wma</groupId>
+				<groupId>gov.usgs.wma.nwql.spikelot</groupId>
 				<artifactId>nwql-spike-lot-ws</artifactId>
 				<version>${project.version}</version>
 			</dependency>

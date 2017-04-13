@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.model;
+package gov.usgs.wma.nwql.spikelot.model;
 
 import java.io.Serializable;
 import java.util.LinkedHashMap;

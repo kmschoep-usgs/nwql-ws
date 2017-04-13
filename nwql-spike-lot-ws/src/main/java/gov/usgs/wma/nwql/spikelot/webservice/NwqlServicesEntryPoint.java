@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.webservice;
+package gov.usgs.wma.nwql.spikelot.webservice;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

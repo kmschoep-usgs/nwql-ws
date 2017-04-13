@@ -1,4 +1,4 @@
-package gov.usgs.wma.nwql.webservice;
+package gov.usgs.wma.nwql.spikelot.webservice;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -12,8 +12,8 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.StreamingOutput;
 
-import gov.usgs.wma.nwql.format.JsonStreamFormat;
-import gov.usgs.wma.nwql.service.DataViewService;
+import gov.usgs.wma.nwql.spikelot.format.JsonStreamFormat;
+import gov.usgs.wma.nwql.spikelot.service.DataViewService;
 
 /**
  * Webservice. Provides /json services for getting data
