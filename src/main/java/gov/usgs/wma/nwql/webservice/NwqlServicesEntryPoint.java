@@ -25,6 +25,7 @@ public class NwqlServicesEntryPoint extends Application {
 
 		// webservices
 		classes.add(SpikeLotWebservice.class);
+		classes.add(SchedParmMethodWebservice.class);
 
 		return classes;
 	}

@@ -25,5 +25,6 @@
 	
 	<mappers> <!-- add additional SQL mapper files here -->
 		<mapper resource="mybatis/spikeLot.xml" />
+		<mapper resource="mybatis/schedParmMethod.xml" />
 	</mappers>
 </configuration> 

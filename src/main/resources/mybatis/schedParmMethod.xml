@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gov.usgs.wma.nwql.mybatis">
+	
+<resultMap id="schedParmMethodRecord" type="gov.usgs.wma.nwql.model.ResultRow">
+		<result property="sched" column="sched" />
+		<result property="parmCode" column="parmcode" />
+		<result property="methCd" column="methcd" />
+		<result property="shortNam" column="shortnam" />
+		<result property="longNam" column="longnam" />
+	</resultMap>
+
+	
+	<sql id="schedParmMethodQuery">
+
+		select  
+		/* PARALLEL (4)*/
+		sched
+		,parmcode
+		,methcd
+		,shortnam
+		,longnam
+		from usgs.nwis_sched_parm_methcd_vw
+	</sql>
+
+	<select id="doSchedParmMethodQuery" parameterType="String" resultMap="schedParmMethodRecord">
+	
+			    <include refid="schedParmMethodQuery"/>
+	</select>
+	
+	<select id="doSchedParmMethodCount" parameterType="String" resultType="Integer" >		
+			select count(*) r_count from
+				(<include refid="schedParmMethodQuery"/>)
+	</select>
+</mapper>
